@@ -1,0 +1,49 @@
+
+#graph svg {
+  /*background-color: #000;*/
+}
+
+#graph .node .circle {
+  stroke-width: 1.5px;
+  stroke-aligment: inner;
+  
+}
+
+#graph .node .nodeTitle {
+  /*font-size: .5em;*/
+  text-anchor: "middle";
+  stroke-width: 0px;
+  pointer-events: none;
+}
+
+#graph .node:hover {
+  stroke-width: 10px;
+  stroke: yellow;
+  /*stroke-aligment: inner;*/
+}
+
+#graph .link {
+  stroke-opacity: .2;
+  fill: none;
+}
+
+#graphInfo {
+	position: absolute;
+	font-size: 8px;
+}
+
+/****/
+
+#nodeinfo {
+/*	width: 100px;*/
+	/*position: absolute;
+	z-index: 5;*/
+	font-size: 0.8em;
+}
+
+.fixed-panel {
+/*  min-width: 100px;*/
+  /*min-width: 300px;*/
+ /* width: 400px;
+  overflow-y: scroll;*/
+}
