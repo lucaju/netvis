@@ -8,7 +8,7 @@ const init = () => {
 	app.controller('ImportCtrl', ($scope, $rootScope, $http, $mdToast) => {
 
 		// html
-		$scope.fileExtensionOptions  = ['json','csv']
+		$scope.fileExtensionOptions  = ['json','csv'];
 		$scope.fileExtension = $scope.fileExtensionOptions[0];
 
 		$scope.csvDataStructureOptions = ['node','edge'];
@@ -30,7 +30,7 @@ const init = () => {
 			fileInput.onchange = e => {
 				file = e.target.files[0];
 				$scope.fileName = file.name;
-				fileInput.value = "";
+				fileInput.value = '';
 
 				$scope.$digest();
 				importData();
@@ -85,11 +85,11 @@ const init = () => {
 				reader.onerror = res => {
 					console.log(res);
 					$scope.showSimpleToastTag('An error occurred!');
-				}
+				};
 
 				reader.onprogress = res => {
 					// console.log(res);
-				}
+				};
 
 			}
 
@@ -105,17 +105,21 @@ const init = () => {
 					'Content-Type': 'application/json'
 				},
 				data: payload
-			}
+			};
 
 			$http(req).then( res => {
 				
 				if (!res.data) return;
 				$scope.importResults = res.data;
 				$rootScope.$broadcast('importData');
-				
-				$scope.showSimpleToastTag('Data imported.');
+
+
+				$scope.showSimpleToastTag('Import succeded');
 
 				file = null;
+
+				// const tagsTab = document.getElementById('tab-tags');
+				// tagsTab.click
 
 			}, res => {
 				console.log(res);

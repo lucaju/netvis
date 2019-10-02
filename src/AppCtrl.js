@@ -30,7 +30,7 @@ const init = () => {
 			logged: false,
 			credentials: null,
 			level: 2
-		}
+		};
 
 		//................
 
@@ -39,6 +39,9 @@ const init = () => {
 		$scope.darkTheme = false;
 		$scope.sideBarOpen = true;
 		$scope.infoPanel = null;
+
+		$scope.tabSelected = 0;
+		// $scope.tabTagsActive = false;
 
 		$scope.dataNodes = [];
 		$scope.tagsSelected = [];
@@ -72,11 +75,11 @@ const init = () => {
 			linkColor: 'default',				// 'default' || 'community'
 			linkStrenght: 'min',				// 'min' || 'max'
 			gooeyFX: false						// false || true
-		}
+		};
 		
 		$scope.emptyCanvas = {
 			message: 'Select a tag to start'
-		}
+		};
 
 		//................
 
@@ -106,7 +109,7 @@ const init = () => {
 
 		$scope.init = () => {
 			$scope.guestLogin();
-		}
+		};
 		
 		//guest login
 		$scope.guestLogin = () => {
@@ -174,7 +177,7 @@ const init = () => {
 				logged: true,
 				credentials: data,
 				level: data.level
-			}
+			};
 
 			if ($scope.dataNodes.length == 0) loadNodesData();
 
@@ -192,7 +195,7 @@ const init = () => {
 			};
 
 			$rootScope.$broadcast('userSigned', $scope.user);
-		}
+		};
 
 		/* Check user Level
 			level: 0 - Super
@@ -238,7 +241,7 @@ const init = () => {
 				if (res.status !== 200) {
 					// console.log(res);
 					$scope.emptyCanvas.message = 'No tags available';
-					if ($scope.checkUserLevel(1)) $scope.emptyCanvas.message += '<br/> Add one to start'
+					if ($scope.checkUserLevel(1)) $scope.emptyCanvas.message += '<br/> Add one to start';
 					return [];
 				}
 
@@ -260,10 +263,17 @@ const init = () => {
 			});
 		};
 
+		$scope.$on('importData', event => {
+
+			//show tags tab
+			$scope.tabTagsActive = true;
+			if (!$scope.$root.$$phase) $scope.$digest();
+
+		});
 
 		$scope.initSettings = () => {
 			$rootScope.$broadcast('loadSettings', $scope.user);
-		}
+		};
 
 		$scope.$on('importData', event => {
 			$scope.netVis = {
