@@ -115,7 +115,7 @@ const init = () => {
 				
 				$scope.importResults = res.data;
 				$rootScope.$broadcast('importData');
-				$scope.showSimpleToastTag('Import succeded');
+				$scope.showSimpleToastTag('Import succeded.');
 
 			}, res => {
 				console.log(res);
