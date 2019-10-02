@@ -1,3 +1,4 @@
+import {DateTime} from 'luxon';
 import {TweenLite} from 'gsap';
 
 import {app} from './AppConfig';
@@ -246,12 +247,19 @@ const init = () => {
 				}
 
 				$scope.dataNodes = res.data;
-				console.log(res.data);
+
+				const now = DateTime.utc();
 
 				//transform and add data
 				for (const node of $scope.dataNodes) {
 					node.weight = 0;
 					node.selected = false;
+
+					const nodeDate = DateTime.fromSQL(node.date);
+					
+					//check modified time/date. Less than 5 minutes mark as new
+					const diff = now.diff(nodeDate, 'minute');
+					if (diff.values.minutes - nodeDate.offset < 5) node.new = true;
 				}
 
 				$scope.netVis.researchers = $scope.dataNodes;

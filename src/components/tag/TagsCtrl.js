@@ -25,7 +25,7 @@ const init = () => {
 		$scope.correctInfoButton = {
 			email: $rootScope.project.email,
 			subject: $rootScope.project.title
-		}
+		};
 
 		$scope.tagListHeightOffset = 42 + 1 + 48 + 135; // top bar + adjust + bottom menu + sub headings categories
 
@@ -189,7 +189,7 @@ const init = () => {
 			}, res => {
 				console.log(res);
 			});
-		}
+		};
 
 		const showTagInfoPanelWithData = node => {
 			//positions
@@ -232,7 +232,7 @@ const init = () => {
 				$scope.infoPanel.open().then( () => {
 					const wrapper = angular.element(document.querySelector('.md-panel-outer-wrapper'));
 					wrapper.addClass('md-panel-outer-wrapper-custom');
-				})
+				});
 
 			};
 
@@ -241,11 +241,11 @@ const init = () => {
 				$scope.infoPanel.close().then( () => {
 					$scope.infoPanel = null;
 					launchTagPanel();
-				})
+				});
 			} else {
 				launchTagPanel();
 			}
-		}
+		};
 
 		$scope.$on('CloseTagInfoPanel', () => $scope.infoPanel = null);
 
@@ -309,7 +309,7 @@ const init = () => {
 				$scope.infoPanel.close().then( () => {
 					$scope.infoPanel = null;
 					launchTagPanel();
-				})
+				});
 			} else {
 				launchTagPanel();
 			}

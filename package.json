@@ -8,9 +8,9 @@
   "author": "Luciano Frizzera <lucaju@gmail.com> (luciano.fluxo.art.br)",
   "license": "CC-BY-NC-4.0",
   "repository": {
-		"type": "git",
-		"url": "https://github.com/lucaju/netvis"
-	},
+    "type": "git",
+    "url": "https://github.com/lucaju/netvis"
+  },
   "main": "index.js",
   "scripts": {
     "watch": "webpack --watch",
@@ -37,6 +37,7 @@
     "gsap": "^2.1.3",
     "jlouvain": "^2.0.0",
     "jszip": "^3.2.2",
+    "luxon": "^1.19.3",
     "ng-device-detector": "^5.1.3",
     "papaparse": "^5.1.0",
     "password-generator": "^2.2.0",
