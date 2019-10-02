@@ -7,6 +7,10 @@
   ],
   "author": "Luciano Frizzera <lucaju@gmail.com> (luciano.fluxo.art.br)",
   "license": "CC-BY-NC-4.0",
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/lucaju/netvis"
+	},
   "main": "index.js",
   "scripts": {
     "watch": "webpack --watch",
@@ -44,7 +48,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.2.0",
-    "eslint": "^6.4.0",
+    "eslint": "^6.5.1",
     "file-loader": "^4.2.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
@@ -55,7 +59,7 @@
     "webpack": "^4.41.0",
     "webpack-bundle-analyzer": "^3.5.2",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-middleware": "^3.7.1",
+    "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.8.1",
     "webpackbar": "^4.0.0"
   }
