@@ -246,6 +246,7 @@ const init = () => {
 				}
 
 				$scope.dataNodes = res.data;
+				console.log(res.data);
 
 				//transform and add data
 				for (const node of $scope.dataNodes) {
@@ -263,16 +264,13 @@ const init = () => {
 			});
 		};
 
-		$scope.$on('importData', event => {
-
-			//show tags tab
-			$scope.tabTagsActive = true;
-			if (!$scope.$root.$$phase) $scope.$digest();
-
-		});
 
 		$scope.initSettings = () => {
 			$rootScope.$broadcast('loadSettings', $scope.user);
+		};
+
+		$scope.changeTabSelection = elem => {
+			$scope.tabTagsActive = false;
 		};
 
 		$scope.$on('importData', event => {
@@ -283,6 +281,9 @@ const init = () => {
 				nodes: []
 			};
 			loadNodesData();
+
+			$scope.tabTagsActive = true;
+			if (!$scope.$root.$$phase) $scope.$digest();
 		});
 
 	});

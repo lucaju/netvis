@@ -108,18 +108,14 @@ const init = () => {
 			};
 
 			$http(req).then( res => {
-				
-				if (!res.data) return;
-				$scope.importResults = res.data;
-				$rootScope.$broadcast('importData');
-
-
-				$scope.showSimpleToastTag('Import succeded');
 
 				file = null;
-
-				// const tagsTab = document.getElementById('tab-tags');
-				// tagsTab.click
+				
+				if (!res.data) return;
+				
+				$scope.importResults = res.data;
+				$rootScope.$broadcast('importData');
+				$scope.showSimpleToastTag('Import succeded');
 
 			}, res => {
 				console.log(res);
