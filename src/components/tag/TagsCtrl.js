@@ -65,7 +65,7 @@ const init = () => {
 
 		};
 
-		$scope.tagChecked = ({weight}) => (weight > 0) ? true : false;
+		$scope.tagChecked = ({selected, weight}) => (selected || weight > 0) ? true : false;
 
 		$scope.highlightTags = ({selected}) => {
 			let color;

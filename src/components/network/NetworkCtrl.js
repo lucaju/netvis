@@ -78,18 +78,18 @@ const init = () => {
 			simulation = d3.forceSimulation()
 				.force('link', d3.forceLink().id(d => d.id).distance($scope.netVisLayout.distance))
 				.force('charge', d3.forceManyBody().strength($scope.netVisLayout.charge))
-				.force('center', d3.forceCenter(networkContainerWidth / 2, networkContainerHeight / 2))
-				// .force('x', d3.forceX(networkContainerWidth / 2).strength($scope.netVisLayout.gravity * 0.1))
-				// .force('y', d3.forceY(networkContainerHeight / 2).strength($scope.netVisLayout.gravity * 0.1));
+				.force('center', d3.forceCenter(networkContainerWidth / 2, networkContainerHeight / 2));
+			// .force('x', d3.forceX(networkContainerWidth / 2).strength($scope.netVisLayout.gravity * 0.1))
+			// .force('y', d3.forceY(networkContainerHeight / 2).strength($scope.netVisLayout.gravity * 0.1));
 
-		}
+		};
 
 		$scope.$on('updatedTagList', (event, tag, action) => {
-			if (simulation && $scope.netVis.nodes.length > 0) updateSimulation(tag, action)
+			if (simulation && $scope.netVis.nodes.length > 0) updateSimulation(tag, action);
 		});
 
 		$scope.$on('listTagSelected', (event, tag, action) => {
-			updateSimulation(tag, action)
+			updateSimulation(tag, action);
 		});
 
 		const updateSimulation = (tag, action) => {
@@ -99,7 +99,7 @@ const init = () => {
 			simulation.stop();
 
 			//Add tag node if it is not already added.
-			const _node = getNodeById(tag.id)
+			const _node = getNodeById(tag.id);
 			if (!_node) {
 			// if ($scope.netVis.nodes.indexOf(tag) === -1) {
 				tag.weight = 0;
@@ -116,48 +116,50 @@ const init = () => {
 
 			//load data
 			// if (!_node || tag.linksAdded) {
-				$http.get(`api/node/read_one.php?id=${tag.id}`).then( res => {
+			$http.get(`api/node/read_one.php?id=${tag.id}`).then( res => {
 
-					if (res.status === 204) return [];
+				if (res.status === 204) return [];
 
-					if (res.data) {
+				if (res.data && res.data.relations) {
 
-						//add metada - relation to node;
-						tag.relations = res.data.relations
+					//add metada - relation to node;
+					tag.relations = res.data.relations;
 
-						for (const relation of tag.relations) {
-		
-							let index;
-							let endobj = relation;
-		
-							//add to relatoon 
-							index = $scope.testInById(relation.id, $scope.netVis.researchers);
-							if (index > -1) endobj = $scope.netVis.researchers[index];
-		
-							index = $scope.testInById(relation.id, $scope.netVis.nodes);
-							if (index > -1) endobj = $scope.netVis.nodes[index];
-		
-							const nodeRelated = getNodeById(endobj.id)
-							if (!nodeRelated) {
-							// if ($scope.netVis.nodes.indexOf(endobj) === -1) {
-								endobj.weight = 0;
-								$scope.netVis.nodes.push(endobj);
-								if (_node) _node.weight++;
-							}
-		
-							///add link
-							$scope.addLink(tag, endobj);
-		
-						}
-					}
-					
-					$scope.updateForceLayout();
-
-					
-				}, res => {
 					console.log(res);
-					return false;
-				});
+
+					for (const relation of tag.relations) {
+	
+						let index;
+						let endobj = relation;
+	
+						//add to relatoon 
+						index = $scope.testInById(relation.id, $scope.netVis.researchers);
+						if (index > -1) endobj = $scope.netVis.researchers[index];
+	
+						index = $scope.testInById(relation.id, $scope.netVis.nodes);
+						if (index > -1) endobj = $scope.netVis.nodes[index];
+	
+						const nodeRelated = getNodeById(endobj.id);
+						if (!nodeRelated) {
+						// if ($scope.netVis.nodes.indexOf(endobj) === -1) {
+							endobj.weight = 0;
+							$scope.netVis.nodes.push(endobj);
+							if (_node) _node.weight++;
+						}
+	
+						///add link
+						$scope.addLink(tag, endobj);
+	
+					}
+				}
+				
+				$scope.updateForceLayout();
+
+				
+			}, res => {
+				console.log(res);
+				return false;
+			});
 			// } else {
 			// 	$scope.updateForceLayout();
 			// }
@@ -942,7 +944,7 @@ const init = () => {
 		//Listener: Layout Change
 		$scope.$on('networkLayoutChange', (event, source) => {
 
-			if(!simulation) startSimulation()
+			if(!simulation) startSimulation();
 
 			simulation.stop();
 
@@ -1198,7 +1200,7 @@ const init = () => {
 			if (simulation) {
 				$scope.netVis.select = false;
 				$scope.updateForceLayout();
-				if(simulation) simulation.stop()
+				if(simulation) simulation.stop();
 			}
 		});
 
