@@ -68,11 +68,12 @@
 
             <md-tabs md-align-tabs="bottom"
                      md-no-pagination="false"
-                     md-center-tabs="true">
-                <md-tab id="tab1">
+                     md-center-tabs="true"
+                     md-selected="tabSelected">
+                <md-tab id="tab1" md-active="tabTagsActive">
                     <md-tab-label>
                         <md-icon md-svg-icon="assets/icons/tags.svg"></md-icon>
-                        <md-tooltip md-direction="top" md-delay="delayTooltip">Tags</md-tooltip>
+                        <!-- <md-tooltip md-direction="top" md-delay="delayTooltip">Tags</md-tooltip> -->
                     </md-tab-label>
                     <md-tab-body>
                         <div ng-include="'components/tag/tags.html'"></div>
@@ -97,6 +98,7 @@
                     </md-tab-body>
                 </md-tab>
                 <md-tab id="tab4"
+                    md-on-select="changeTabSelection('import')"
                     ng-if="checkUserLevel(1)">
                     <md-tab-label>
                         <md-icon md-svg-icon="assets/icons/import.svg"></md-icon>

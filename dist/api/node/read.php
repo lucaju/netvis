@@ -41,7 +41,8 @@ if ($stmt->rowCount() > 0) {
         $nodesData = array(
             "id" => $id,
             "name" => html_entity_decode($name),
-            "type" => $type
+            "type" => $type,
+            "date" => $modified_at
         );
 
         array_push($nodesCollection, $nodesData);

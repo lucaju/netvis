@@ -25,7 +25,7 @@ class Node
     // read nodes
     function read()
     {
-        $query = "SELECT n.id, n.name, n.type
+        $query = "SELECT n.id, n.name, n.type, n.modified_at
             FROM $this->_table_name n";
 
         $stmt = $this->_conn->prepare($query);

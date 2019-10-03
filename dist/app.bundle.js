@@ -234,14 +234,17 @@ _AppCtrl__WEBPACK_IMPORTED_MODULE_1__["default"].init();
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var _AppConfig__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppConfig */ "./src/AppConfig.js");
-/* harmony import */ var _components_login_LoginCtrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/login/LoginCtrl */ "./src/components/login/LoginCtrl.js");
-/* harmony import */ var _components_tag_TagsCtrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/tag/TagsCtrl */ "./src/components/tag/TagsCtrl.js");
-/* harmony import */ var _components_network_NetworkCtrl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/network/NetworkCtrl */ "./src/components/network/NetworkCtrl.js");
-/* harmony import */ var _components_export_ExportCtrl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/export/ExportCtrl */ "./src/components/export/ExportCtrl.js");
-/* harmony import */ var _components_import_ImportCtrl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/import/ImportCtrl */ "./src/components/import/ImportCtrl.js");
-/* harmony import */ var _components_settings_SettingsCtrl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/settings/SettingsCtrl */ "./src/components/settings/SettingsCtrl.js");
+/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! luxon */ "./node_modules/luxon/build/cjs-browser/luxon.js");
+/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(luxon__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var _AppConfig__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppConfig */ "./src/AppConfig.js");
+/* harmony import */ var _components_login_LoginCtrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/login/LoginCtrl */ "./src/components/login/LoginCtrl.js");
+/* harmony import */ var _components_tag_TagsCtrl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/tag/TagsCtrl */ "./src/components/tag/TagsCtrl.js");
+/* harmony import */ var _components_network_NetworkCtrl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/network/NetworkCtrl */ "./src/components/network/NetworkCtrl.js");
+/* harmony import */ var _components_export_ExportCtrl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/export/ExportCtrl */ "./src/components/export/ExportCtrl.js");
+/* harmony import */ var _components_import_ImportCtrl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/import/ImportCtrl */ "./src/components/import/ImportCtrl.js");
+/* harmony import */ var _components_settings_SettingsCtrl__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/settings/SettingsCtrl */ "./src/components/settings/SettingsCtrl.js");
+
 
 
 
@@ -256,14 +259,14 @@ __webpack_require__.r(__webpack_exports__);
 
 const init = () => {
 
-	_components_tag_TagsCtrl__WEBPACK_IMPORTED_MODULE_3__["default"].init();
-	_components_network_NetworkCtrl__WEBPACK_IMPORTED_MODULE_4__["default"].init();
-	_components_export_ExportCtrl__WEBPACK_IMPORTED_MODULE_5__["default"].init();
-	_components_import_ImportCtrl__WEBPACK_IMPORTED_MODULE_6__["default"].init();
-	_components_settings_SettingsCtrl__WEBPACK_IMPORTED_MODULE_7__["default"].init();
-	_components_login_LoginCtrl__WEBPACK_IMPORTED_MODULE_2__["default"].init();
+	_components_tag_TagsCtrl__WEBPACK_IMPORTED_MODULE_4__["default"].init();
+	_components_network_NetworkCtrl__WEBPACK_IMPORTED_MODULE_5__["default"].init();
+	_components_export_ExportCtrl__WEBPACK_IMPORTED_MODULE_6__["default"].init();
+	_components_import_ImportCtrl__WEBPACK_IMPORTED_MODULE_7__["default"].init();
+	_components_settings_SettingsCtrl__WEBPACK_IMPORTED_MODULE_8__["default"].init();
+	_components_login_LoginCtrl__WEBPACK_IMPORTED_MODULE_3__["default"].init();
 
-	_AppConfig__WEBPACK_IMPORTED_MODULE_1__["app"].controller('AppCtrl', ($rootScope, $scope, $http, $mdPanel) => {
+	_AppConfig__WEBPACK_IMPORTED_MODULE_2__["app"].controller('AppCtrl', ($rootScope, $scope, $http, $mdPanel) => {
 
 		$scope.theme = 'appTheme'; //them color
 
@@ -274,7 +277,7 @@ const init = () => {
 			logged: false,
 			credentials: null,
 			level: 2
-		}
+		};
 
 		//................
 
@@ -283,6 +286,9 @@ const init = () => {
 		$scope.darkTheme = false;
 		$scope.sideBarOpen = true;
 		$scope.infoPanel = null;
+
+		$scope.tabSelected = 0;
+		// $scope.tabTagsActive = false;
 
 		$scope.dataNodes = [];
 		$scope.tagsSelected = [];
@@ -316,11 +322,11 @@ const init = () => {
 			linkColor: 'default',				// 'default' || 'community'
 			linkStrenght: 'min',				// 'min' || 'max'
 			gooeyFX: false						// false || true
-		}
+		};
 		
 		$scope.emptyCanvas = {
 			message: 'Select a tag to start'
-		}
+		};
 
 		//................
 
@@ -350,7 +356,7 @@ const init = () => {
 
 		$scope.init = () => {
 			$scope.guestLogin();
-		}
+		};
 		
 		//guest login
 		$scope.guestLogin = () => {
@@ -418,7 +424,7 @@ const init = () => {
 				logged: true,
 				credentials: data,
 				level: data.level
-			}
+			};
 
 			if ($scope.dataNodes.length == 0) loadNodesData();
 
@@ -436,7 +442,7 @@ const init = () => {
 			};
 
 			$rootScope.$broadcast('userSigned', $scope.user);
-		}
+		};
 
 		/* Check user Level
 			level: 0 - Super
@@ -453,7 +459,7 @@ const init = () => {
 
 			if ($scope.sideBarOpen) {
 
-				gsap__WEBPACK_IMPORTED_MODULE_0__["TweenLite"].to(side, 0.4, {
+				gsap__WEBPACK_IMPORTED_MODULE_1__["TweenLite"].to(side, 0.4, {
 					x: '300px',
 					onComplete: () => {
 						$scope.sideBarOpen = false;
@@ -466,7 +472,7 @@ const init = () => {
 
 				$scope.sideBarOpen = true;
 				$rootScope.$broadcast('networkLayoutChange', 'sideBar');
-				gsap__WEBPACK_IMPORTED_MODULE_0__["TweenLite"].to(side, 0.4, {x: '0px'});
+				gsap__WEBPACK_IMPORTED_MODULE_1__["TweenLite"].to(side, 0.4, {x: '0px'});
 
 			}
 
@@ -482,16 +488,24 @@ const init = () => {
 				if (res.status !== 200) {
 					// console.log(res);
 					$scope.emptyCanvas.message = 'No tags available';
-					if ($scope.checkUserLevel(1)) $scope.emptyCanvas.message += '<br/> Add one to start'
+					if ($scope.checkUserLevel(1)) $scope.emptyCanvas.message += '<br/> Add one to start';
 					return [];
 				}
 
 				$scope.dataNodes = res.data;
 
+				const now = luxon__WEBPACK_IMPORTED_MODULE_0__["DateTime"].utc();
+
 				//transform and add data
 				for (const node of $scope.dataNodes) {
 					node.weight = 0;
 					node.selected = false;
+
+					const nodeDate = luxon__WEBPACK_IMPORTED_MODULE_0__["DateTime"].fromSQL(node.date);
+					
+					//check modified time/date. Less than 5 minutes mark as new
+					const diff = now.diff(nodeDate, 'minute');
+					if (diff.values.minutes - nodeDate.offset < 5) node.new = true;
 				}
 
 				$scope.netVis.researchers = $scope.dataNodes;
@@ -507,7 +521,11 @@ const init = () => {
 
 		$scope.initSettings = () => {
 			$rootScope.$broadcast('loadSettings', $scope.user);
-		}
+		};
+
+		$scope.changeTabSelection = elem => {
+			$scope.tabTagsActive = false;
+		};
 
 		$scope.$on('importData', event => {
 			$scope.netVis = {
@@ -517,6 +535,9 @@ const init = () => {
 				nodes: []
 			};
 			loadNodesData();
+
+			$scope.tabTagsActive = true;
+			if (!$scope.$root.$$phase) $scope.$digest();
 		});
 
 	});
@@ -871,7 +892,7 @@ const init = () => {
 	_AppConfig__WEBPACK_IMPORTED_MODULE_2__["app"].controller('ImportCtrl', ($scope, $rootScope, $http, $mdToast) => {
 
 		// html
-		$scope.fileExtensionOptions  = ['json','csv']
+		$scope.fileExtensionOptions  = ['json','csv'];
 		$scope.fileExtension = $scope.fileExtensionOptions[0];
 
 		$scope.csvDataStructureOptions = ['node','edge'];
@@ -893,7 +914,7 @@ const init = () => {
 			fileInput.onchange = e => {
 				file = e.target.files[0];
 				$scope.fileName = file.name;
-				fileInput.value = "";
+				fileInput.value = '';
 
 				$scope.$digest();
 				importData();
@@ -948,11 +969,11 @@ const init = () => {
 				reader.onerror = res => {
 					console.log(res);
 					$scope.showSimpleToastTag('An error occurred!');
-				}
+				};
 
 				reader.onprogress = res => {
 					// console.log(res);
-				}
+				};
 
 			}
 
@@ -968,17 +989,17 @@ const init = () => {
 					'Content-Type': 'application/json'
 				},
 				data: payload
-			}
+			};
 
 			$http(req).then( res => {
-				
-				if (!res.data) return;
-				$scope.importResults = res.data;
-				$rootScope.$broadcast('importData');
-				
-				$scope.showSimpleToastTag('Data imported.');
 
 				file = null;
+				
+				if (!res.data) return;
+				
+				$scope.importResults = res.data;
+				$rootScope.$broadcast('importData');
+				$scope.showSimpleToastTag('Import succeded.');
 
 			}, res => {
 				console.log(res);
@@ -1225,18 +1246,18 @@ const init = () => {
 			simulation = d3__WEBPACK_IMPORTED_MODULE_2__["forceSimulation"]()
 				.force('link', d3__WEBPACK_IMPORTED_MODULE_2__["forceLink"]().id(d => d.id).distance($scope.netVisLayout.distance))
 				.force('charge', d3__WEBPACK_IMPORTED_MODULE_2__["forceManyBody"]().strength($scope.netVisLayout.charge))
-				.force('center', d3__WEBPACK_IMPORTED_MODULE_2__["forceCenter"](networkContainerWidth / 2, networkContainerHeight / 2))
-				// .force('x', d3.forceX(networkContainerWidth / 2).strength($scope.netVisLayout.gravity * 0.1))
-				// .force('y', d3.forceY(networkContainerHeight / 2).strength($scope.netVisLayout.gravity * 0.1));
+				.force('center', d3__WEBPACK_IMPORTED_MODULE_2__["forceCenter"](networkContainerWidth / 2, networkContainerHeight / 2));
+			// .force('x', d3.forceX(networkContainerWidth / 2).strength($scope.netVisLayout.gravity * 0.1))
+			// .force('y', d3.forceY(networkContainerHeight / 2).strength($scope.netVisLayout.gravity * 0.1));
 
-		}
+		};
 
 		$scope.$on('updatedTagList', (event, tag, action) => {
-			if (simulation && $scope.netVis.nodes.length > 0) updateSimulation(tag, action)
+			if (simulation && $scope.netVis.nodes.length > 0) updateSimulation(tag, action);
 		});
 
 		$scope.$on('listTagSelected', (event, tag, action) => {
-			updateSimulation(tag, action)
+			updateSimulation(tag, action);
 		});
 
 		const updateSimulation = (tag, action) => {
@@ -1246,7 +1267,7 @@ const init = () => {
 			simulation.stop();
 
 			//Add tag node if it is not already added.
-			const _node = getNodeById(tag.id)
+			const _node = getNodeById(tag.id);
 			if (!_node) {
 			// if ($scope.netVis.nodes.indexOf(tag) === -1) {
 				tag.weight = 0;
@@ -1263,48 +1284,50 @@ const init = () => {
 
 			//load data
 			// if (!_node || tag.linksAdded) {
-				$http.get(`api/node/read_one.php?id=${tag.id}`).then( res => {
+			$http.get(`api/node/read_one.php?id=${tag.id}`).then( res => {
 
-					if (res.status === 204) return [];
+				if (res.status === 204) return [];
 
-					if (res.data) {
+				if (res.data && res.data.relations) {
 
-						//add metada - relation to node;
-						tag.relations = res.data.relations
+					//add metada - relation to node;
+					tag.relations = res.data.relations;
 
-						for (const relation of tag.relations) {
-		
-							let index;
-							let endobj = relation;
-		
-							//add to relatoon 
-							index = $scope.testInById(relation.id, $scope.netVis.researchers);
-							if (index > -1) endobj = $scope.netVis.researchers[index];
-		
-							index = $scope.testInById(relation.id, $scope.netVis.nodes);
-							if (index > -1) endobj = $scope.netVis.nodes[index];
-		
-							const nodeRelated = getNodeById(endobj.id)
-							if (!nodeRelated) {
-							// if ($scope.netVis.nodes.indexOf(endobj) === -1) {
-								endobj.weight = 0;
-								$scope.netVis.nodes.push(endobj);
-								if (_node) _node.weight++;
-							}
-		
-							///add link
-							$scope.addLink(tag, endobj);
-		
-						}
-					}
-					
-					$scope.updateForceLayout();
-
-					
-				}, res => {
 					console.log(res);
-					return false;
-				});
+
+					for (const relation of tag.relations) {
+	
+						let index;
+						let endobj = relation;
+	
+						//add to relatoon 
+						index = $scope.testInById(relation.id, $scope.netVis.researchers);
+						if (index > -1) endobj = $scope.netVis.researchers[index];
+	
+						index = $scope.testInById(relation.id, $scope.netVis.nodes);
+						if (index > -1) endobj = $scope.netVis.nodes[index];
+	
+						const nodeRelated = getNodeById(endobj.id);
+						if (!nodeRelated) {
+						// if ($scope.netVis.nodes.indexOf(endobj) === -1) {
+							endobj.weight = 0;
+							$scope.netVis.nodes.push(endobj);
+							if (_node) _node.weight++;
+						}
+	
+						///add link
+						$scope.addLink(tag, endobj);
+	
+					}
+				}
+				
+				$scope.updateForceLayout();
+
+				
+			}, res => {
+				console.log(res);
+				return false;
+			});
 			// } else {
 			// 	$scope.updateForceLayout();
 			// }
@@ -2089,7 +2112,7 @@ const init = () => {
 		//Listener: Layout Change
 		$scope.$on('networkLayoutChange', (event, source) => {
 
-			if(!simulation) startSimulation()
+			if(!simulation) startSimulation();
 
 			simulation.stop();
 
@@ -2345,7 +2368,7 @@ const init = () => {
 			if (simulation) {
 				$scope.netVis.select = false;
 				$scope.updateForceLayout();
-				if(simulation) simulation.stop()
+				if(simulation) simulation.stop();
 			}
 		});
 
@@ -3518,7 +3541,7 @@ const init = () => {
 		$scope.correctInfoButton = {
 			email: $rootScope.project.email,
 			subject: $rootScope.project.title
-		}
+		};
 
 		$scope.tagListHeightOffset = 42 + 1 + 48 + 135; // top bar + adjust + bottom menu + sub headings categories
 
@@ -3558,7 +3581,7 @@ const init = () => {
 
 		};
 
-		$scope.tagChecked = ({weight}) => (weight > 0) ? true : false;
+		$scope.tagChecked = ({selected, weight}) => (selected || weight > 0) ? true : false;
 
 		$scope.highlightTags = ({selected}) => {
 			let color;
@@ -3682,7 +3705,7 @@ const init = () => {
 			}, res => {
 				console.log(res);
 			});
-		}
+		};
 
 		const showTagInfoPanelWithData = node => {
 			//positions
@@ -3725,7 +3748,7 @@ const init = () => {
 				$scope.infoPanel.open().then( () => {
 					const wrapper = angular.element(document.querySelector('.md-panel-outer-wrapper'));
 					wrapper.addClass('md-panel-outer-wrapper-custom');
-				})
+				});
 
 			};
 
@@ -3734,11 +3757,11 @@ const init = () => {
 				$scope.infoPanel.close().then( () => {
 					$scope.infoPanel = null;
 					launchTagPanel();
-				})
+				});
 			} else {
 				launchTagPanel();
 			}
-		}
+		};
 
 		$scope.$on('CloseTagInfoPanel', () => $scope.infoPanel = null);
 
@@ -3802,7 +3825,7 @@ const init = () => {
 				$scope.infoPanel.close().then( () => {
 					$scope.infoPanel = null;
 					launchTagPanel();
-				})
+				});
 			} else {
 				launchTagPanel();
 			}

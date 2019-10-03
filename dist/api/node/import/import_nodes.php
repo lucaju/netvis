@@ -21,7 +21,7 @@ class ImportNodes
         $this->importErros = 0;
     }
 
-    function importData($dataCollection)
+    public function importData($dataCollection)
     {
         //loop through nodes
         foreach ($dataCollection as $dataNode) {
@@ -31,6 +31,7 @@ class ImportNodes
                 //node model
 
                 $node = $this->newNode($dataNode);
+
                 if (!$node) continue;
 
                 //check if has relations
@@ -76,13 +77,13 @@ class ImportNodes
         } else if ($nodeCreation['status'] == 'exist') {
             //if it already exist, 
             $nodeUpdate = $node->update();
+           
             if ($nodeUpdate['status'] == 'updated') {
                 $this->nodesUpdated++;
                 return $node;
-            } else {
-                // $this->importErros++;
-                return false;
             }
+
+            return $node;
 
         }
 
