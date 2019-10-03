@@ -10,7 +10,7 @@ const WebpackBar = require('webpackbar');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-	mode: 'development', // production
+	mode: 'development', // production //can't do production because this project use AngularJS (old and not compatible with webpack)
 	entry: './src/AppConfig.js',
 	output: {
 		filename: 'app.bundle.js',
