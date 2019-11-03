@@ -149,8 +149,11 @@ Install dependencies `npm install`
 ### Development
 
 Use the following to develop each module of this project
+
 `npm run watch` [main app]
+
 `npm run watchReset` [invite/reset email]
+
 `npm run watchInstall` [install process]
 
 The app will be accessible through your localhost in the ‘public’ folder of this project.
