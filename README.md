@@ -63,7 +63,7 @@ Export the data or graphic from the on-screen visualization.
 
 CSV and JSON: Both options contain the nodes (researchers, interests, and departments) and their relationship to other nodes.
 
-#### Graph
+#### Graphs
 
 **PNG**
 The PNG option generates a raster file with a transparent background. All the nodes and links currently present in the visualization.
@@ -90,14 +90,13 @@ The layout menu in the side panel provides additional customization options, whi
 ### Server
 
 This app requires a web server with
-**PHP 7.0** (or higher)
-**MySQL**
+**PHP 7.0** (or higher) and **MySQL**
 
 ### Database
 
 On your web host server, create a database for this app and define a user (and password) for this database.  
 
-### Upload the files
+### Upload the Files
 
 Copy the files in the “dist” folder of this repository to a folder on the server.
 
@@ -106,7 +105,7 @@ Copy the files in the “dist” folder of this repository to a folder on the se
 On the browser, navigate to the folder you put the files. *e.g.*, www.your-server-url.com/netvis/index.php
 The app guides you through a step-by-step installation on the first time you run it. Follow the instructions.
 
-#### Email provider - SendGrid
+#### Email Provider - SendGrid
 
 Though SendGrid is not required for the app to work, it is highly recommended to have it installed. This app uses SendGrid to send invites for new users and password resets. SendGrid is free for up to 100 emails per day. Create an account and user your API during the installation process to hook the service. You can also set up this later through the settings panel.
 
@@ -124,8 +123,7 @@ Assuming you are installing on a local machine.
 ### Dev Server
 
 This app requires a web server with
-**PHP 7.0** (or higher)
-**MySQL**
+**PHP 7.0** (or higher) and **MySQL**
 
 If you are on a Mac, I suggest using [MAMP](https://www.mamp.info/en/)
 
@@ -139,7 +137,7 @@ The development environment requires:
 
 On your web host server, create a database for this app and define a user (and password) for this database.
 
-### Install dependencies
+### Install Dependencies
 
 Clone this repository
 Install dependencies `npm install`
