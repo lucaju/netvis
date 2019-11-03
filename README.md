@@ -9,7 +9,7 @@ Developed in Javascript, PHP and MySQL, with AngularJS and [D3](https://d3js.org
 
 ### Dataset
 
-The “Tags” menu displays the dataset in three categories: Researchers, Interests, and Departments. It is possible to search data by name. The visualization is populated as the user select and deselect tags. The nodes represent tags (Researchers, Departments, and Interests), and the lines the connection between them. More detailed description and functionalities are available in the ‘Help’ section of the visualization.
+The “Tags” menu displays the dataset in three categories: Researchers, Interests, and Departments. It is possible to search for data by name. The visualization is populated as the user selects and deselects tags. The nodes represent tags (Researchers, Departments, and Interests), and the lines the connection between them. More details and functionalities are available in the ‘Help’ section of the visualization.
 
 ### Add / Import Data
 
@@ -53,7 +53,7 @@ Schema:
 
 - All fields required. ‘source’ and ‘target’ correspond to the name of a node.
 - The ‘sourceType’ and ‘targetType’ should be one of the following: 'Researcher' | 'Department' | ‘Interest. ]
-- Nodes will be automatically created using the ‘source’ and ‘target’ fields.
+- Nodes are automatically created using the ‘source’ and ‘target’ fields.
 
 ### Export
 
@@ -66,33 +66,31 @@ CSV and JSON: Both options contain the nodes (researchers, interests, and depart
 #### Graph
 
 **PNG**
-The PNG option generates a raster file with transparent background. All the nodes and links currently present in the visualization.
+The PNG option generates a raster file with a transparent background. All the nodes and links currently present in the visualization.
 
 **SVG**
-The SVG option generates a vector-based file that can be opened in the browser or in any vector-based image editor.
+The SVG option generates a vector-based file that can be opened in the browser or any vector-based image editor.
 
 ### Layout
 
 The layout menu in the side panel provides additional customization options, which includes:  
 
-- Network and cluster view;   Adjusting how nodes react to each other
-   through gravity, charge, distance, and collision detection;
-- Changing the weight, size, and color of nodes (color coding can be
-   applied by type of tags or by community;
+- Network and cluster view;   Adjusting how nodes react to each other through gravity, charge, distance, and collision detection;
+- Changing the weight, size, and colour of nodes (colour coding can be applied by type of tags or by cluster communities);
 - the latter is calculated by an algorithm that finds similar clusters based on the number of shared connections);
 - Changing title and network link size and color.
 
 ## Install
 
 1. Check the server requirements
-2. Setup a database
+2. Set up a database
 3. Upload the files
 4. Setup the app
 
 ### Server
 
-This app requires a web server with:
-**PHP 7.0 (or higher)**
+This app requires a web server with
+**PHP 7.0** (or higher)
 **MySQL**
 
 ### Database
@@ -106,13 +104,11 @@ Copy the files in the “dist” folder of this repository to a folder on the se
 ### Setup
 
 On the browser, navigate to the folder you put the files. *e.g.*, www.your-server-url.com/netvis/index.php
-The app will guide you through a step-by-step installation on the first time you run it. Follow the instructions.
+The app guides you through a step-by-step installation on the first time you run it. Follow the instructions.
 
 #### Email provider - SendGrid
 
-Though this is not required for the app to work, it is highly recommend.
-This app uses SendGrid to send invite for new users and password resets.
-SendGrid is free for up to 100 emails per day. Create an account and user your API during the installation process to hook the service. You wan also setup this later, on the settings panel.
+Though SendGrid is not required for the app to work, it is highly recommended to have it installed. This app uses SendGrid to send invites for new users and password resets. SendGrid is free for up to 100 emails per day. Create an account and user your API during the installation process to hook the service. You can also set up this later through the settings panel.
 
 ## For Development
 
@@ -122,16 +118,16 @@ Assuming you are installing on a local machine.
 1. Check the server requirements
 2. Setup a database
 3. Clone this repository and install the dependencies
-4. Setup the app
+4. Set up the app
 5. Run
 
 ### Dev Server
 
-This app requires a web server with:
-**PHP 7.0 (or higher)**
+This app requires a web server with
+**PHP 7.0** (or higher)
 **MySQL**
 
-If you are on a Mac I suggest MAMP
+If you are on a Mac, I suggest using [MAMP](https://www.mamp.info/en/)
 
 The development environment requires:
 **NodeJS** - Download here: [https://nodejs.org/en/](https://nodejs.org/en/)
@@ -150,19 +146,34 @@ Install dependencies `npm install`
 
 Use the following to develop each module of this project
 
-`npm run watch` [main app]
+[main app]
 
-`npm run watchReset` [invite/reset email]
+`npm run watch`
 
-`npm run watchInstall` [install process]
+[invite/reset email]
 
-The app will be accessible through your localhost in the ‘public’ folder of this project.
+`npm run watchReset`
+
+[install process]
+
+`npm run watchInstall`
+
+The app is accessible through your localhost in the ‘public’ folder of this project.
 
 ### Production
 
 Use the following to compile files for production:
-`npm run production` [main app]
-`npm run productionReset` [invite/reset email]
-`npm run productionInstall` [install process]
 
-The files will be available in the ‘dist’ folder of this project.
+[main app]
+
+`npm run production`
+
+ [invite/reset email]
+
+`npm run productionReset`
+
+[install process]
+
+`npm run productionInstall`
+
+The files are available in the ‘dist’ folder of this project.
