@@ -43,16 +43,15 @@ Schema:
 
     name,type,firstName,lastName,website
 
-- Only “name” and “type” are required. All the other fields can be
-   empty.
-- The type should be one of the following: 'Researcher' | 'Department' | 'Interest
+- Only “name” and “type” are required. All the other fields can be empty.
+- "type" should be one of the following: 'Researcher', 'Department', or ‘Interest.
 
 **Edges only schema:**
 
     source,target,sourceType,targetType
 
 - All fields required. ‘source’ and ‘target’ correspond to the name of a node.
-- The ‘sourceType’ and ‘targetType’ should be one of the following: 'Researcher' | 'Department' | ‘Interest. ]
+- The ‘sourceType’ and ‘targetType’ should be one of the following: 'Researcher', 'Department', or ‘Interest.
 - Nodes are automatically created using the ‘source’ and ‘target’ fields.
 
 ### Export
@@ -177,3 +176,9 @@ Use the following to compile files for production:
 `npm run productionInstall`
 
 The files are available in the ‘dist’ folder of this project.
+
+### Setup the App
+
+On the browser, navigate to the folder you put the files on your localhost *e.g.*, projects/netvis/index.php
+The app guides you through a step-by-step installation on the first time you run it. Follow the instructions.
+The installation process creates an environment variable file (.env) to store the database credentials.
