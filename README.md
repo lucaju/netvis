@@ -130,7 +130,9 @@ This app requires a web server with
 If you are on a Mac, I suggest using [MAMP](https://www.mamp.info/en/)
 
 The development environment requires:
-**NodeJS** - Download here: [https://nodejs.org/en/](https://nodejs.org/en/)
+
+[**NodeJS**](https://nodejs.org/en/)
+
 **NPM** (Comes with NodeJS)
 
 ### Dev Database
