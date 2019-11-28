@@ -1,5 +1,5 @@
 import {DateTime} from 'luxon';
-import {TweenLite} from 'gsap';
+import gsap from 'gsap';
 
 import {app} from './AppConfig';
 
@@ -213,7 +213,8 @@ const init = () => {
 
 			if ($scope.sideBarOpen) {
 
-				TweenLite.to(side, 0.4, {
+				gsap.to(side, {
+					duration: 0.4,
 					x: '300px',
 					onComplete: () => {
 						$scope.sideBarOpen = false;
@@ -226,7 +227,10 @@ const init = () => {
 
 				$scope.sideBarOpen = true;
 				$rootScope.$broadcast('networkLayoutChange', 'sideBar');
-				TweenLite.to(side, 0.4, {x: '0px'});
+				gsap.to(side, {
+					duration: 0.4,
+					x: '0px'
+				});
 
 			}
 

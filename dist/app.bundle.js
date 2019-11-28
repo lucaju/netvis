@@ -459,7 +459,8 @@ const init = () => {
 
 			if ($scope.sideBarOpen) {
 
-				gsap__WEBPACK_IMPORTED_MODULE_1__["TweenLite"].to(side, 0.4, {
+				gsap__WEBPACK_IMPORTED_MODULE_1__["default"].to(side, {
+					duration: 0.4,
 					x: '300px',
 					onComplete: () => {
 						$scope.sideBarOpen = false;
@@ -472,7 +473,10 @@ const init = () => {
 
 				$scope.sideBarOpen = true;
 				$rootScope.$broadcast('networkLayoutChange', 'sideBar');
-				gsap__WEBPACK_IMPORTED_MODULE_1__["TweenLite"].to(side, 0.4, {x: '0px'});
+				gsap__WEBPACK_IMPORTED_MODULE_1__["default"].to(side, {
+					duration: 0.4,
+					x: '0px'
+				});
 
 			}
 
