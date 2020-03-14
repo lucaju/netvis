@@ -22,7 +22,7 @@
     "productionAll": "webpack --config webpack.prod.config.js --progress && webpack --config webpack.install.prod.config.js --progress && webpack --config webpack.passreset.prod.config.js --progress"
   },
   "dependencies": {
-    "acorn": "^7.1.0",
+    "acorn": "^7.1.1",
     "acorn-jsx": "^5.1.0",
     "angular": "^1.7.9",
     "angular-animate": "^1.7.9",
