@@ -104,9 +104,13 @@ Copy the files in the “dist” folder of this repository to a folder on the se
 On the browser, navigate to the folder you put the files. *e.g.*, www.your-server-url.com/netvis/index.php
 The app guides you through a step-by-step installation on the first time you run it. Follow the instructions.
 
+**Important:** Make sure the web server software (e.g. apache, nginx) can write to the netvis folder.
+
 #### Email Provider - SendGrid
 
-Though SendGrid is not required for the app to work, it is highly recommended to have it installed. This app uses SendGrid to send invites for new users and password resets. SendGrid is free for up to 100 emails per day. Create an account and user your API during the installation process to hook the service. You can also set up this later through the settings panel.
+This app uses SendGrid to send invites for new users and password resets.
+SendGrid is free for up to 100 emails per day.
+Create an account and user your API during the installation process to hook the service.
 
 ## For Development
 
