@@ -13,6 +13,7 @@
   },
   "main": "index.js",
   "scripts": {
+    "cm": "git-cz",
     "watch": "webpack --watch",
     "watchReset": "webpack --config webpack.passreset.config.js --watch",
     "watchInstall": "webpack --config webpack.install.config.js --watch",
@@ -22,7 +23,7 @@
     "productionAll": "webpack --config webpack.prod.config.js --progress && webpack --config webpack.install.prod.config.js --progress && webpack --config webpack.passreset.prod.config.js --progress"
   },
   "dependencies": {
-    "acorn": "^7.1.0",
+    "acorn": "^7.1.1",
     "acorn-jsx": "^5.1.0",
     "angular": "^1.7.9",
     "angular-animate": "^1.7.9",
@@ -47,10 +48,12 @@
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
+    "commitizen": "^4.0.3",
     "copy-webpack-plugin": "^5.0.5",
     "css-loader": "^3.2.0",
     "eslint": "^6.7.1",
     "file-loader": "^5.0.2",
+    "git-cz": "^4.3.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "html-webpack-template": "^6.2.0",
@@ -58,10 +61,15 @@
     "style-loader": "^1.0.0",
     "svg-inline-loader": "^0.8.0",
     "webpack": "^4.41.2",
-    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-bundle-analyzer": "^3.6.1",
     "webpack-cli": "^3.3.10",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.9.0",
     "webpackbar": "^4.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
   }
 }
