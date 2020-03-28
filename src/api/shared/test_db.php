@@ -24,7 +24,11 @@ function checkEnv()
 function checkNewCredentials()
 {
     $dbData = json_decode(file_get_contents("php://input"));
-    if (!isset($dbData->name) || !isset($dbData->user) || !isset($dbData->password)) {
+    if (!isset($dbData->name)
+        || !isset($dbData->host)
+        || !isset($dbData->user)
+        || !isset($dbData->password)
+    ) {
         return false;
     } else {
         return true;
@@ -61,7 +65,7 @@ if ($env) {
     
 } else {
     $dbData = json_decode(file_get_contents("php://input"));
-    $DB_HOST = "localhost";
+    $DB_HOST = $dbData->host;
     $DB_NAME = $dbData->name;
     $DB_USER = $dbData->user;
     $DB_PWD = $dbData->password;
@@ -71,7 +75,7 @@ try {
 
     // try to connect
     $db = new PDO(
-        "mysql:host=$DB_HOST;dbname=$DB_NAME",
+        "mysql:dbname=$DB_NAME;host=$DB_HOST",
         $DB_USER,
         $DB_PWD
     );
@@ -90,7 +94,7 @@ try {
     echo json_encode(
         array(
             "message" => "Connection failed.",
-            "error" => $exception->getMessage()
+            "error" => $exception->getMessage(),
         )
     );
 }
