@@ -16,6 +16,7 @@ require_once '../api/shared/utilities.php';
 $data = json_decode(file_get_contents("php://input"));
 
 if (!isset($data->database->name)
+    || !isset($data->database->host)
     || !isset($data->database->user)
     || !isset($data->database->password)
     || !isset($data->user->email)
@@ -118,7 +119,7 @@ function createEnv($now)
     $envFile = '../.env';
 
     $info = "\n# DATABASE\n";
-    $info .= "DATABASE_HOST=localhost\n";
+    $info .= "DATABASE_HOST=" . $data->database->host . "\n";
     $info .= "DATABASE_NAME=" . $data->database->name . "\n";
     $info .= "DATABASE_USERNAME=" . $data->database->user . "\n";
     $info .= "DATABASE_PASSWORD=" . $data->database->password . "\n";
