@@ -20,35 +20,35 @@ It is also possible to import a dataset in two formats (JSON or CSV).
 
 Schema:
 
-    [   
-        {
-            "name": "String: required",
-            "type": "String: required ['Researcher' | 'Department' | 'Interest']",
-            "firstName": "String: optional",
-            "lastName": "String: optional",
-            "website": "String: optional",
-            "edges": Array: optional
-                [
-                    {
-                        "type": "String: required",
-                        "name": "String: required"
-                    }
-                ]
-        }
-    ]
+```json
+[
+  {
+    "name": "String: required",
+    "type": "String: required ['Researcher' | 'Department' | 'Interest']",
+    "firstName": "String: optional",
+    "lastName": "String: optional",
+    "website": "String: optional",
+    "edges": Array: optional
+      [{
+        "type": "String: required",
+        "name": "String: required"
+      }]
+  }
+]
+```
 
 #### CSV
 
 **Nodes only schema:**
 
-    name,type,firstName,lastName,website
+`name,type,firstName,lastName,website`
 
 - Only “name” and “type” are required. All the other fields can be empty.
 - "type" should be one of the following: 'Researcher', 'Department', or ‘Interest.
 
 **Edges only schema:**
 
-    source,target,sourceType,targetType
+`source,target,sourceType,targetType`
 
 - All fields required. ‘source’ and ‘target’ correspond to the name of a node.
 - The ‘sourceType’ and ‘targetType’ should be one of the following: 'Researcher', 'Department', or ‘Interest.
@@ -56,7 +56,7 @@ Schema:
 
 ### Export
 
-Export the data or graphic from the on-screen visualization.  
+Export the data or graphic from the on-screen visualization.
 
 #### Data
 
@@ -72,9 +72,9 @@ The SVG option generates a vector-based file that can be opened in the browser o
 
 ### Layout
 
-The layout menu in the side panel provides additional customization options, which includes:  
+The layout menu in the side panel provides additional customization options, which includes:
 
-- Network and cluster view;   Adjusting how nodes react to each other through gravity, charge, distance, and collision detection;
+- Network and cluster view; Adjusting how nodes react to each other through gravity, charge, distance, and collision detection;
 - Changing the weight, size, and colour of nodes (colour coding can be applied by type of tags or by cluster communities);
 - the latter is calculated by an algorithm that finds similar clusters based on the number of shared connections);
 - Changing title and network link size and color.
@@ -93,7 +93,7 @@ This app requires a web server with
 
 ### Database
 
-On your web host server, create a database for this app and define a user (and password) for this database.  
+On your web host server, create a database for this app and define a user (and password) for this database.
 
 ### Upload the Files
 
@@ -101,7 +101,7 @@ Copy the files in the “dist” folder of this repository to a folder on the se
 
 ### Setup
 
-On the browser, navigate to the folder you put the files. *e.g.*, www.your-server-url.com/netvis/index.php
+On the browser, navigate to the folder you put the files. _e.g._, www.your-server-url.com/netvis/index.php
 The app guides you through a step-by-step installation on the first time you run it. Follow the instructions.
 
 **Important:** Make sure the web server software (e.g. apache, nginx) can write to the netvis folder.
@@ -147,42 +147,14 @@ Install dependencies `npm install`
 
 ### Development
 
-Use the following to develop each module of this project
+user `npm build-dev-watch`
 
-[main app]
+user `npm buil` (production)
 
-`npm run watch`
-
-[invite/reset email]
-
-`npm run watchReset`
-
-[install process]
-
-`npm run watchInstall`
-
-The app is accessible through your localhost in the ‘public’ folder of this project.
-
-### Production
-
-Use the following to compile files for production:
-
-[main app]
-
-`npm run production`
-
- [invite/reset email]
-
-`npm run productionReset`
-
-[install process]
-
-`npm run productionInstall`
-
-The files are available in the ‘dist’ folder of this project.
+The app is accessible through your localhost in the ‘dist’ folder of this project.
 
 ### Setup the App
 
-On the browser, navigate to the folder you put the files on your localhost *e.g.*, projects/netvis/index.php
+On the browser, navigate to the folder you put the files on your localhost _e.g._, projects/netvis/index.php
 The app guides you through a step-by-step installation on the first time you run it. Follow the instructions.
 The installation process creates an environment variable file (.env) to store the database credentials.
