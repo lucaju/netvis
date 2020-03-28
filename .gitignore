@@ -3,5 +3,4 @@ node_modules/
 src/vendor/
 
 #dev dir
-public/
 data/
