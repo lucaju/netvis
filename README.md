@@ -1,5 +1,7 @@
 # NetVis
 
+** Newer version with the backend built with NodeJS and MongoDB: [https://github.com/lucaju/netvisjs](https://github.com/lucaju/netvisjs)
+
 ## Academic Research Network Visualization
 
 A tool to visualize networked data, focus on the relationship between faculty members, departments, and research topics.
