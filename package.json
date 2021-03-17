@@ -34,7 +34,7 @@
     "jszip": "^3.2.2",
     "luxon": "^1.21.3",
     "ng-device-detector": "^5.1.4",
-    "papaparse": "^5.1.0",
+    "papaparse": "^5.2.0",
     "password-generator": "^2.2.3",
     "re-tree": "^0.1.7",
     "save-svg-as-png": "^1.4.14",
