@@ -31,7 +31,7 @@
     "file-saver": "^2.0.2",
     "gsap": "^3.6.0",
     "jlouvain": "^2.0.0",
-    "jszip": "^3.2.2",
+    "jszip": "^3.7.0",
     "luxon": "^1.21.3",
     "ng-device-detector": "^5.1.4",
     "papaparse": "^5.2.0",
